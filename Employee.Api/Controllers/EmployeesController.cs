@@ -29,6 +29,13 @@ namespace Employee.Api.Controllers
             return Ok(await EmployeeServices.GetEmployees());
         }
 
+        // GET: api/Employees/Search
+        [HttpGet("Search/{term}")]
+        public async Task<ActionResult<IEnumerable<Models.Employee>>> GetEmployees(string term)
+        {
+            return Ok(await EmployeeServices.Search(term));
+        }
+
         // GET: api/Employees/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Models.Employee>> GetEmployee(int id)
